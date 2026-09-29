@@ -7,4 +7,3 @@ __pycache__/
 *.npy
 *.npz
 .DS_Store
-/models
