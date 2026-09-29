@@ -21,9 +21,12 @@ def preprocess():
     X_test_raw = np.load("data/raw/X_test.npy")
     y_test_raw = np.load("data/raw/y_test.npy")
 
-    # Scale pixel values to [-1, 1] range:
-    X_train_norm = (X_train_raw.astype("float32") / 127.5) - 1.0
-    X_test_norm = (X_test_raw.astype("float32") / 127.5) - 1.0
+    # Normalize pixel values
+    # Replace standard 255.0 division with mean/std standardization:
+    mean = X_train_raw.mean()
+    std = X_train_raw.std()
+    X_train_norm = (X_train_raw - mean) / std
+    X_test_norm = (X_test_raw - mean) / std
 
     # Train/Val Split
     X_train, X_val, y_train, y_val = train_test_split(
