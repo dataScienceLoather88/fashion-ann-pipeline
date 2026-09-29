@@ -1,0 +1,9 @@
+# .gitignore
+venv/
+__pycache__/
+.dvc/cache
+.dvc/tmp
+*.h5
+*.npy
+*.npz
+.DS_Store
